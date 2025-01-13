@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ice Bomb Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <style>body {
+        font-family: Arial, sans-serif;
+        background-color: #fff;
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
+    
+    .contact-container {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        text-align: center;
+    }
+    .contact-image {
+    width: 100%; /* Adjust width as needed */
+    max-width: 600px; /* Adjust maximum width as needed */
+    height: auto;
+    margin: 20px 0;}
+    h1 {
+        color: #333;
+    }
+    
+    .contact-info h2 {
+        color: darkblue;
+    }
+    
+    .contact-info p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin: 10px 0;
+    }
+    .contact-info {
+    text-align: center;
+    padding: 20px;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons img {
+    width: 40px; /* Adjust size as needed */
+    height: 40px;
+    margin: 0 10px;
+    vertical-align: middle;
+}
+ 
+    a {
+        color: darkblue;
+        text-decoration: none;
+    }
+    
+    a:hover {
+        text-decoration: underline;
+    }
+  
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and typography */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .logo img {
+            width: 150px;
+        }
+
+        /* Navigation */
+        .nav .active {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            z-index: 1000;
+            border-top: 1px solid #ddd;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        .nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav ul li {
+            margin: 15px 30px;
+            width: 100%;
+        }
+
+        .nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Hide the close icon by default */
+        .close-icon {
+            display: none;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 1100;
+            color: #333;
+        }
+
+        /* When the nav menu is active, show the close icon */
+        .nav ul.active ~ .close-icon {
+            display: block;
+        }
+
+        /* Styling for the X icon */
+        .close-icon span {
+            font-size: 40px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        /* Move the hero section down when the menu is open */
+        .nav ul.active ~ .hero {
+            margin-top: 150px;
+        }
+
+        /* Reset the hero section's margin when the menu is closed */
+        .hero {
+            transition: margin-top 0.3s ease;
+        }
+
+        .hero img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+        }
+
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .menu-icon img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .hero.active {
+            transform: translateY(200px);
+            transition: transform 0.3s ease;
+        }
+
+        /* Grid for Action Sections */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 40px;
+        }
+
+        .grid-item {
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .action-button {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .action-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }      /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 10px 0;
+        }
+
+        footer ul li {
+            margin: 0 15px;
+        }
+
+        footer ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+
+     
+
+footer ul li a:hover {
+    text-decoration: none; /* No underline on hover */
+}
+
+
+        footer p {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* Media Queries for Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            .nav ul {
+        display: none; /* Hide navigation links initially */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Adjust for header height */
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        border-top: 1px solid #ddd;
+        z-index: 1;
+    }
+
+    .nav ul.active {
+        display: flex; /* Show when toggled */
+    }
+
+    .menu-icon {
+        display: block; /* Show hamburger menu on mobile */
+    }
+
+            .about-section {
+                flex-direction: column;
+            }
+
+            .about-content p {
+                max-width: 100%;
+            }
+        }  .newsletter input[type="email"] {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .video-section iframe {
+        height: 300px;
+    }
+
+    footer ul {
+        flex-direction: column;
+    }
+
+    footer ul li {
+        margin: 10px 0;
+    }
+  /* Very Small Screens (Phones in Portrait Mode) */
+@media (max-width: 480px) {
+    .hero img {
+        height: auto;
+    }
+
+    .video-section iframe {
+        height: 250px;
+    }
+
+    .newsletter input[type="email"] {
+        width: 100%;
+    }
+
+    .action-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+/* Tablets and Medium Screens */
+@media (max-width: 992px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* Adjust grid for tablets */
+    }
+
+    .video-section iframe {
+        height: 400px; /* Reduce video height on smaller screens */
+    }
+
+    .newsletter input[type="email"] {
+        width: 250px;
+    }
+}
+
+    </style>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <a href="index.php"><img src="images/Ice Bomb Logo.8ed06360.png" alt="Ice Bomb Logo" style="width: 150px;"></a>
+        </div>
+        <nav class="nav">
+            <ul id="nav-list">
+                <li><a href="shop.php">Shop</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Stocklist.html">Stockists</a></li>
+                <li><a href="Wholesale.html">Wholesale</a></li>
+                <li><a href="Events.html">Events</a></li>
+                <li><a href="ContactUs.html">Contact</a></li>
+                <li><a href="cart.php">Cart</a></li>
+            </ul>
+
+            <!-- Hamburger Menu Icon -->
+            <div class="menu-icon">
+                <img src="images/menu.png" alt="Menu Icon" id="menu-toggle">
+            </div>
+
+            <!-- Close Icon for the Menu -->
+            <div class="close-icon" id="close-menu">
+                <span>&times;</span> <!-- "X" Icon -->
+            </div>
+        </nav>
+    </header>
+
+    <div class="contact-container">
+
+        <h1>Contact Us</h1>
+        <img src="images/contact.ba1c6e8c.jpg" alt="Contact Us" class="contact-image">
+        <div class="contact-info">
+            
+            <h2>Get in touch</h2>
+            <p>Got a question about us? Are you interested in partnering with us? Have some suggestions or just want to say "Hi"? Please contact us. We would love to hear from you.</p>
+            <p><a href="tel:+2772307067">+27 72 307 067</a> | <a href="tel:+27878514569">+27 87 851 4569</a></p>
+            <p><a href="mailto:info@icebombs.co.za">info@icebombs.co.za</a></p>
+            <p>90A Buckingham Avenue, Craighall Park, Johannesburg, Gauteng, South Africa, 2196</p>
+        </div>
+    </div>
+    <section>
+        <div class="contact-info">
+        <p>We do not have a walk-in store, only an online shop. If you would like to order Ice Bombs, please shop online.</p>
+        <p>LEAVE A REVIEW: We value any feedback that you may have, should you have any, please click the following link: <a href="https://bit.ly/3VkhCqf" target="_blank">https://bit.ly/3VkhCqf</a></p>
+        <div class="social-icons">
+            <a href="https://m.facebook.com/icebombs/" target="_blank"><img src="images/facebook.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/icebombs/" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+            </div>    
+        </section>
+      <!-- Footer -->
+      <footer>
+        <p>&copy; 2023 Ice Bomb. All rights reserved.</p>
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="About.html">About us</a></li>
+            <li><a href="ContactUs.html">Contact</a></li>
+            <li><a href="Terms.html">Terms</a></li>
+         
+            <li><a href="Privacy.html">Privacy</a></li>
+        </ul>
+    </footer>
+
+    <script>
+        // Toggle Navigation Menu for Mobile
+        const menuToggle = document.getElementById('menu-toggle');
+        const navList = document.getElementById('nav-list');
+        const closeMenu = document.getElementById('close-menu');
+
+        const heroSection = document.querySelector('.hero');
+
+menuToggle.addEventListener('click', function() {
+    navList.classList.toggle('active');
+    closeMenu.style.display = 'block';
+    //Move hero section down when menu is open
+    if (navList.classList.contains('active')) {
+        heroSection.style.marginTop = '150px'; // Adjust this value if needed
+    }
+});
+
+closeMenu.addEventListener('click', function() {
+    navList.classList.remove('active');
+    closeMenu.style.display = 'none'; // Hide the close button when menu is closed
+
+    // Move hero section back up
+    heroSection.style.marginTop = '0';
+});
+    </script>
+
+</body>
+</html>

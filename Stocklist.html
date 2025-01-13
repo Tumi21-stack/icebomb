@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events & Functions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+<style>/* General Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    /* Body and Typography */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #fff;
+        color: #333;
+    }
+    
+    /* Header */
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .logo img {
+        width: 150px;
+    }
+    
+    /* Navigation */
+    .nav ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .nav ul li {
+        margin: 15px 30px;
+    }
+    
+    .nav ul li a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+    }
+    
+    /* Hide the close icon by default */
+    .close-icon {
+        display: none;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 30px;
+        cursor: pointer;
+        z-index: 1100;
+        color: #333;
+    }
+    
+    /* When the nav menu is active, show the close icon */
+    .nav ul.active ~ .close-icon {
+        display: block;
+    }
+    
+    /* Styling for the X icon */
+    .close-icon span {
+        font-size: 40px;
+        color: #333;
+    }
+    
+    /* Hide the menu icon by default */
+    .menu-icon {
+        display: none;
+        cursor: pointer;
+        z-index: 1100;
+    }
+    
+    .menu-icon img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    /* Move the hero section down when the menu is open */
+    .hero {
+        transition: margin-top 0.3s ease;
+    }.contact-info {
+    text-align: center;
+    padding: 20px;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons img {
+    width: 40px; /* Adjust size as needed */
+    height: 40px;
+    margin: 0 10px;
+    vertical-align: middle;
+}
+    
+    /* Media Queries for Mobile Responsiveness */
+    @media (max-width: 768px) {
+        .nav ul {
+            display: none; /* Hide navigation links initially */
+            flex-direction: column;
+            position: absolute;
+            top: 60px; /* Adjust for header height */
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            border-top: 1px solid #ddd;
+            z-index: 1;
+        }
+    
+        .nav ul.active {
+            display: flex; /* Show when toggled */
+        }
+    
+        .menu-icon {
+            display: block; /* Show hamburger menu on mobile */
+        }
+  }
+    
+    /* Very Small Screens (Phones in Portrait Mode) */
+    @media (max-width: 480px) {
+        .hero img {
+            height: auto;
+        }
+    
+        .video-section iframe {
+            height: 250px;
+        }
+    
+        .newsletter input[type="email"] {
+            width: 100%;
+        }
+    
+        .action-button {
+            font-size: 14px;
+            padding: 8px 16px;
+        }
+    }
+    
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Typography */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fff;
+    color: #333;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+
+    /* General Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Body and typography */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #fff;
+        color: #333;
+    }
+
+    /* Header */
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .logo img {
+        width: 150px;
+    }
+
+    /* Navigation */
+    .nav .active {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        z-index: 1000;
+        border-top: 1px solid #ddd;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+
+    .nav ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav ul li {
+        margin: 15px 30px;
+        width: 100%;
+    }
+
+    .nav ul li a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    /* Hide the close icon by default */
+    .close-icon {
+        display: none;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 30px;
+        cursor: pointer;
+        z-index: 1100;
+        color: #333;
+    }
+
+    /* When the nav menu is active, show the close icon */
+    .nav ul.active ~ .close-icon {
+        display: block;
+    }
+
+    /* Styling for the X icon */
+    .close-icon span {
+        font-size: 40px;
+        color: #333;
+        cursor: pointer;
+    }
+
+    /* Move the hero section down when the menu is open */
+    .nav ul.active ~ .hero {
+        margin-top: 150px;
+    }
+
+    /* Reset the hero section's margin when the menu is closed */
+    .hero {
+        transition: margin-top 0.3s ease;
+    }
+
+    .hero img {
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
+    }
+
+    .menu-icon {
+        display: none;
+        cursor: pointer;
+        z-index: 1100;
+    }
+
+    .menu-icon img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .contact-info {
+    text-align: center;
+    padding: 20px;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons img {
+    width: 40px; /* Adjust size as needed */
+    height: 40px;
+    margin: 0 10px;
+    vertical-align: middle;
+}
+ 
+/* Stockist Section */
+.stockist-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 50px 0;
+        background-color: #fff;
+    }
+    
+    .stockist-section h2 {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #000;
+    }
+    
+    .stockist-image img {
+        width: 70%;
+        max-width: 500px;
+        border-radius: 15px;
+    } 
+h2 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.find-stockist {
+  text-align: center;
+}
+
+.find-stockist img {
+  width: 50%;
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+.province-list {
+  margin: 20px auto;
+  width: 80%;
+}
+
+.provinces {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.province-btn {
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px;
+  margin: 10px 0;
+  border-bottom: 2px solid #ccc;
+}
+
+.province-btn:hover {
+  border-bottom: 2px solid #333;
+}
+
+.dropdown-content {
+  display: none;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.dropdown-content h3 {
+  margin-bottom: 5px;
+}
+
+.dropdown-content p {
+  margin-bottom: 15px;
+} /* Footer */
+    footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+
+    footer ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        margin: 10px 0;
+    }
+
+    footer ul li {
+        margin: 0 15px;
+    }
+
+    footer ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
+
+    footer p {
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+    /* Media Queries for Mobile Responsiveness */
+    @media (max-width: 768px) {
+    .grid-container
+     {
+            grid-template-columns: 1fr;
+        }
+
+    .nav ul
+     {
+    display: none; /* Hide navigation links initially */
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Adjust for header height */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    z-index: 1;
+}
+
+.nav ul.active
+ {
+    display: flex; /* Show when toggled */
+}
+
+.menu-icon
+ {
+    display: block; /* Show hamburger menu on mobile */
+}
+
+ .about-section 
+ {
+            flex-direction: column;
+        }
+ .about-content p 
+ {
+            max-width: 100%;
+        }
+    }  
+    
+.newsletter input[type="email"] {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.video-section iframe {
+    height: 300px;
+}
+
+footer ul {
+    flex-direction: column;
+}
+
+footer ul li {
+    margin: 10px 0;
+}
+/* Very Small Screens (Phones in Portrait Mode) */
+@media (max-width: 480px) {
+.hero img {
+    height: auto;
+}
+
+.video-section iframe {
+    height: 250px;
+}
+
+.newsletter input[type="email"] {
+    width: 100%;
+}
+
+.action-button {
+    font-size: 14px;
+    padding: 8px 16px;
+}
+}
+
+   
+</style>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <a href="index.php"><img src="images/Ice Bomb Logo.8ed06360.png" alt="Ice Bomb Logo" style="width: 150px;"></a>
+        </div>
+        <nav class="nav">
+            <ul id="nav-list" class="nav-list">
+                <li><a href="shop.php">Shop</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Stocklist.html">Stockists</a></li>
+                <li><a href="Wholesale.html">Wholesale</a></li>
+                <li><a href="Events.html">Events</a></li>
+                <li><a href="ContactUs.html">Contact</a></li>
+                <li><a href="cart.php">Cart</a></li>
+            </ul>
+            <div id="close-menu" class="close-icon">
+                <span>&times;</span>
+            </div>
+            <div id="menu-toggle" class="menu-icon">
+                <img src="images/menu.png" alt="Menu">
+            </div>
+        </nav>
+    </header>
+
+   
+</header>
+<section class="stockist-section">
+    <h2>Find a Stockist</h2>
+    <div class="stockist-image">
+        <img src="images/people.9e8b67e4.jpg" alt="Group of kids enjoying ice lollies">
+    </div>
+</section>
+
+
+    <div class="province-list">
+      <p>Here is a list of nationwide stockists: <br>
+        To become a stockist, please call 072 307 0167 or email <a href="mailto:ant@icebombs.co.za">ant@icebombs.co.za</a>
+      </p>
+
+      <div class="provinces">
+        <button class="province-btn" onclick="toggleDropdown('gauteng')">GAUTENG</button>
+        <button class="province-btn" onclick="toggleDropdown('mpumalanga')">MPUMALANGA</button>
+        <button class="province-btn" onclick="toggleDropdown('western-cape')">WESTERN CAPE</button>
+        <button class="province-btn" onclick="toggleDropdown('eastern-cape')">EASTERN CAPE GARDEN ROUTE</button>
+        <button class="province-btn" onclick="toggleDropdown('kwazulu-natal')">KWAZULU-NATAL</button>
+        <button class="province-btn" onclick="toggleDropdown('northern-cape')">NORTHERN CAPE</button>
+        <button class="province-btn" onclick="toggleDropdown('north-west')">NORTH WEST</button>
+        <button class="province-btn" onclick="toggleDropdown('limpopo')">LIMPOPO</button>
+        <button class="province-btn" onclick="toggleDropdown('free-state')">FREE STATE</button>
+        <!-- Add more buttons for other provinces -->
+      </div>
+
+      <div class="dropdown-content" id="gauteng">
+        <h3>GAUTENG</h3>
+        <p><strong>Bagel Zone Benmore</strong><br>083 225 2911<br>Shop G12, Benmore Gardens Shopping Centre,<br>Cnr Grayston & Benmore Drive, Benmore Gardens, Sandton</p>
+    <p><strong>Bagel Zone Genesis</strong><br>076 062 5120<br>Genesis Shopping Centre, 3 Bradfield Drive, Fairmount, Johannesburg</p>
+    <p><strong>Benjamin Preparatory</strong><br>011 868 1404<br>27 Benjamin Street, Brackenhurst, Alberton</p>
+    <p><strong>Craighall Spar</strong><br>011 788 1510<br>110 Lancaster Ave, Craighall Park, Johannesburg</p>
+    <p><strong>Cremelicious Centurion</strong><br>082 881 2206<br>2 Old Johannesburg Road, One-On-One home Centre, Rooihuiskraal, Centurion</p>
+    <p><strong>Dee Jay’s Deli</strong><br>011 887 5758<br>85 3rd Avenue, Percelia, Johannesburg, Gauteng 2192, South Africa</p>
+    <p><strong>Delta Café Restaurant</strong><br>010 900 3850<br>76 Marlborough Avenue, Craighall Park, Randburg</p>
+    <p><strong>D’Lish Supermarket & Deli</strong><br>012 370 1774<br>369 Willem Erasmus Street, Erasmia, Centurion, Pretoria</p>
+    <p><strong>East Rand Events</strong><br>074 455 3403<br>Victoria Lane Mall, 32 8th Avenue, Edenvale</p>
+    <p><strong>Hands on Coffee</strong><br>072 385 4197<br>581 Justice Mahomed Street, Muckleneuk, Pretoria</p>
+    <p><strong>Huddle Park Golf Course</strong><br>061 999 0418<br>121 Club Street, Huddle Park, Linksfield, South Africa</p>
+    <p><strong>Ice Bound Food Truck</strong><br>078 706 0710<br>78 Percy Road, Fontainebleau, Randburg</p>
+    <p><strong>Ice Burg Boksburg</strong><br>084 423 2874<br>Shop 5, Vmax Square, Corner Atlas & North Rand Road, Boksburg</p>
+    <p><strong>Ice Burg Carnival</strong><br>084 999 0999<br>Shop R8, Mall@Carnival, Cnr Airport & Heidelberg Roads, Dalpark</p>
+    <p><strong>Ice Burg Hillfox</strong><br>061 000 1000<br>Cnr Albert & Hendrik, Potgieter Road, Weltevredenpark</p>
+    <p><strong>Ice Burg Meadowdale</strong><br>062 000 4000<br>Shop 16B, Meadowdale Value Centre, Corner Hyperama Link & Dick Kemp, Meadowdale, Germiston</p>
+    <p><strong>Ice Burg Xavier</strong><br>084 452 0710<br>Xavier Boulevard, Shop 2, Corner Xavier & Vleiroos Streets, Winchester Hills</p>
+    <p><strong>Impala Fruit & Flowers</strong><br>082 087 8367<br>101 Lancaster Ave, Craighall Park, Johannesburg</p>
+    <p><strong>Kievits Kroon Estate</strong><br>012 819 8600<br>41 Reier Road, Kameeldrift-East, Pretoria</p>
+    <p><strong>Let’s Play Café</strong><br>082 315 7007<br>Leeuwkop Golf Course, Cnr Candican & Kipling Roads, Barbeque Downs, Sandton</p>
+    <p><strong>Linden Kwikspar</strong><br>011 888 0433<br>44 4th Ave, Linden, Johannesburg</p>
+    <p><strong>Lion & Safari Park</strong><br>087 150 0100<br>R512 Pelindaba Rd, Hartbeespoort, Broederstroom</p>
+    <p><strong>Maggies Farm</strong><br>010 133 008<br>R512 Phelindaba Rd, Lanseria</p>
+    <p><strong>Mega Mica Eastgate</strong><br>011 616 4129<br>Mica Building, Eastgate Shopping Centre, 43 Bradford Rd, Bedfordview, Johannesburg</p>
+    <p><strong>Milk Bar Parkmore</strong><br>083 649 3339<br>11 Holt Street East, Parkmore, Sandton</p>
+    <p><strong>Monateng Safari Lodge</strong><br>012 808 5461<br>Lynn East, Pretoria</p>
+    <p><strong>Moishes Butchery</strong><br>011 485 4513<br>3 Birt Street, Raedene Estate, Johannesburg</p>
+    <p><strong>OK Foods Fontainbleau</strong><br>010 110 1586<br>Corner Rabie & Republic Roads, Fontainbleau, Randburg</p>
+    <p><strong>Park Muslim Butchery</strong><br>011 852 1239<br>23 Beril Street, Lenasia</p>
+    <p><strong>Petit Mica</strong><br>010 591 3990<br>6B Eva Road, Petit, Benoni</p>
+    <p><strong>Polar Kempton Park - Water Inn</strong><br>082 593 5354<br>1 Eland Road, Corner Monument Road, Kempton Park</p>
+    <p><strong>Refresh Café & Takeaway</strong><br>016 556 1223<br>13 Bilal Dr, Roshnee Vereeneging</p>
+    <p><strong>Snack Café</strong><br>082 958 0885<br>Trade Route Mall, Kiosk 1, Corner K43, Nirvana Road, Lenasia</p>
+    <p><strong>Sweet Delicacies</strong><br>072 194 0027<br>Shop 8, Macrovest Centre, Witkoppies, Klerksdorp</p>
+    <p><strong>The Coffee Club</strong><br>073 314 4095<br>Randburg Sports Club, Cnr. Malibongwe Drive & Hans Schoeman Street, Praegville, Randburg</p>
+    <p><strong>Tipu Café</strong><br>069 410 5220<br>Old Parks Sports Club, 1 Garden Road, Bordeaux, Randburg</p>
+    <p><strong>Tyrone Fruiterers</strong><br>082 777 1507<br>56 Tyrone Avenue, Parkview, Johannesburg</p>
+    <p><strong>Waterworld Express Water Shop Centurion</strong><br>082 389 3580<br>Shop 271a Centurion Mall (Entrance 5), 1269 Gordon Hood Road, Centurion</p>
+  </div>
+
+      <div class="dropdown-content" id="mpumalanga">
+        <h3>MPUMALANGA</h3>
+        <p><strong>Alzu Foods Nelspruit</strong><br>069 289 1033<br>Lowveld Lifestyle Centre, 43 Waterfall Avenue, Riverside Industrial Park, Mbombela</p>
+    <p><strong>Chippos Spar Express</strong><br>082 745 4808<br>22 Ferreira Street, Nelspruit</p>
+    <p><strong>Clewer General Dealer</strong><br>071 679 0475<br>Main Street, Pilgrim’s Rest</p>
+    <p><strong>Crossing Superspar</strong><br>013 752 7825<br>Crossing Shopping Centre, Madiba Drive, Mbombela</p>
+    <p><strong>Feral Café</strong><br>060 631 1416<br>Shop 3, 392 Huilboerboom Road, Hoedspruit</p>
+    <p><strong>J&B Ice Cream Distributors</strong><br>017 647 5016<br>74b Jabulane Selepe Street, Bethal</p>
+    <p><strong>Henbase Lodge</strong><br>083 416 9268<br>Morgenzon</p>
+    <p><strong>Highwayman’s Garage</strong><br>071 679 0475<br>Main Street, Pilgrim’s Rest</p>
+    <p><strong>Joubert en Seuns Padstal</strong><br>013 880 0067<br>N4 Highway Schoemanskloof, Nelspruit</p>
+    <p><strong>Marlothi Shopping Centre</strong><br>013 792 4816<br>3884 Olifants Rd, Marloth Park</p>
+    <p><strong>Ngwenya Lodge</strong><br>013 793 9300<br>Farm Whisky, Tenbosch Rd, Komatipoort</p>
+    <p><strong>OK Foods Panorama</strong><br>076 971 3930<br>Cnr. Gordon’s Rd & Prinsberg Ave, Witbank</p>
+    <p><strong>Out of Africa Shop Lower Sabi</strong><br>013 735 0171<br>Lower Sabi Rest Camp, Kruger National Park</p>
+    <p><strong>Out of Africa Shop Satara</strong><br>013 735 5880<br>Satara Rest Camp, Kruger National Park</p>
+    <p><strong>Out of Africa Shop Skukuza</strong><br>013 735 0029<br>Skukuza Rest Camp, Kruger National Park</p>
+    <p><strong>Perfect Water Delmas</strong><br>082 774 6409<br>1 Klopper Street, Delmas</p>
+    <p><strong>Sasol Piet Retief</strong><br>017 826 2941<br>Cnr Theo Mocke & Church Streets, Piet Retief</p>
+    <p><strong>Swadini Forever Resort</strong><br>015 795 5141<br>Blyde River Nature Reserve, R531, Klasserie Road, Hoedspruit</p>
+    <p><strong>Total Bonjour Middelburg</strong><br>082 853 9447<br>Alzu Petroport N4, part of 35 van plaas Kleinfontein 432JS, Middelburg</p>
+  </div>
+
+      <div class="dropdown-content" id="western-cape">
+        <h3>WESTERN CAPE</h3>
+        <p><strong>A.S. Family Store Twee BK</strong><br>021 872 8475<br>470 Main Street, Paarl</p>
+        <p><strong>Cakes by Henno @ Butterfly World</strong><br>073 282 1998<br>Route 44 & N1, Klapmuts</p>
+        <p><strong>Country Shop Caledon</strong><br>028 214 6110<br>Cnr. Plain & Industrial Road, Caledon</p>
+        <p><strong>Country Shop Moorreesburg</strong><br>022 433 1027<br>Long Road, Moorreesburg</p>
+        <p><strong>Country Shop Napier</strong><br>028 423 3340<br>11 Sarel Cilliers Street, Napier</p>
+        <p><strong>Darling Spar</strong><br>022 492 2448<br>14 Main Road, Darling</p>
+        <p><strong>Dried Fruit for Africa</strong><br>021 982 8672<br>Unit J11, Okavango Junction, Kenwil Drive, Brackenfell</p>
+        <p><strong>Kwikspar Somerset</strong><br>021 851 5795<br>150 Main Road, Lion Square, Somerset West</p>
+        <p><strong>Langeberg Ridge Superette</strong><br>081 365 5715<br>Corner Ridge & Robyn Roads, Langeberg, Durbanville</p>
+        <p><strong>Marina Supermarket</strong><br>022 707 7789<br>Club Mykonos Resort, Langebaan</p>
+        <p><strong>Moorreesburg Spar</strong><br>022 433 2280<br>14 Main Str, Moorreesburg</p>
+        <p><strong>Mountain View Spar</strong><br>021 856 0067<br>Cnr. Avondrus Street & Sir Lowry's Pass Road, Winslow, Gordon's Bay</p>
+        <p><strong>OK Express Malmesbury</strong><br>021 007 1347<br>Portion 6, Farm Diepkloof, Malmesbury</p>
+        <p><strong>OK Minimark Goedemoed</strong><br>021 976 3789<br>22 Lubbe Street, Wellway Park, East Durbanville</p>
+        <p><strong>OK Minimark Greyton</strong><br>028 254 9739 / 9244<br>43 Oak Street, Greyton, Overberg</p>
+        <p><strong>OK Foods Stilbaai</strong><br>028 754 1207<br>Main Road West, Stilbaai</p>
+        <p><strong>Pringle Bay Mini Mart</strong><br>028 273 8821<br>366 Central Road, Pringle Bay</p>
+        <p><strong>Route 27 Gifts & Clothing</strong><br>083 389 0281<br>Vyge Valley Farm, R27 West Coast Road, Swartland</p>
+        <p><strong>Sea Point Spar</strong><br>021 439 0913<br>94 Regent Road, Sea Point</p>
+        <p><strong>Suidpunt Varsmark</strong><br>081 887 7945<br>39 Fletcher Street, Bredasdorp</p>
+        <p><strong>The Fancy Pantry</strong><br>010 109 0337<br>29 Flamingo Crescent, Landsdowe</p>
+        <p><strong>Twin Palms Kwikspar</strong><br>021 853 0653<br>c/o Broadway Boulevard & Altena Rd, Somerset West</p>
+      </div>
+      <div class="dropdown-content" id="eastern-cape">
+        <h3>EASTERN CAPE GARDEN ROUTE</h3>
+        <p><strong>Distributor:</strong><br>Bernard Vorster: 084 711 4200</p>
+        <p><strong>Bali Trading</strong><br>028 713 2080<br>N2 National Road, Riversdale</p>
+        <p><strong>Cachalot Fishery</strong><br>081 240 8087<br>Mossel Bay Waterfront, Mossel Bay</p>
+        <p><strong>Camelo’s Beach Oasis</strong><br>082 463 2060<br>Mossel Bay Waterfront, Mossel Bay</p>
+        <p><strong>Coffee Any Time Harbour</strong><br>081 240 8087<br>Mossel Bay Waterfront, Mossel Bay</p>
+        <p><strong>Coffee Any Time Mossel Bay Point</strong><br>081 240 8087<br>Point Discovery Centre, Mossel Bay Point, Mossel Bay</p>
+        <p><strong>Die Vyeboom Padstal</strong><br>061 513 9365<br>Seal Point Apartments, 7 Da Gama Way, Cape St Francis</p>
+        <p><strong>Hartenbos Super Market</strong><br>061 661 4091<br>36 Kaap De Goede Hoop Avenue, Hartenbos, Mossel Bay</p>
+        <p><strong>Indraf See Ster</strong><br>083 269 8551<br>11 Garret Street, Voorbaai, Mossel Bay</p>
+        <p><strong>Jill’s Groovy Scoops Ice Cream</strong><br>042 294 0639<br>R102, Hart & Bosch Village, Hartenbos, Mossel Bay</p>
+        <p><strong>Lig Punt Deli</strong><br>079 513 7173<br>Shop 3, Spur Building, Point Road, Mossel Bay</p>
+        <p><strong>Matt & Collins Pizza & Food Bar</strong><br>076 181 4807<br>77 Bland Street, Mossel Bay</p>
+        <p><strong>Oasis Café</strong><br>044 691 2317<br>21 Mars Street, Mossel Bay</p>
+        <p><strong>Reebok Superette</strong><br>044 696 6224<br>56 Koedoe Street, Reebok</p>
+        <p><strong>Re-Treat Ice Cream Shop</strong><br>066 219 1173<br>1 George Road, Wilderness</p>
+        <p><strong>Riversdale Service Station</strong><br>028 713 2496<br>Shop 6, N2 National Road, Riversdale</p>
+        <p><strong>The Barn on Montague</strong><br>084 560 0183<br>13 Montagu Street, Blanco, George</p>
+        <p><strong>Woord in Waarheid</strong><br>072 514 5470<br>Shop 6, Langebergpark, 18 Parsons Lane, Voorbaai, Mossel Bay</p>
+      </div>
+      <div class="dropdown-content" id="kwazulu-natal">
+        <h3>KWAZULU-NATAL</h3>
+        <p><strong>Ashgroves</strong><br>032 946 1408<br>3 Myrtle Lane, Compensation Beach Rd, Ballito</p>
+        <p><strong>Banana Box Supermarket</strong><br>035 590 1050<br>36 Pelican Str, St Lucia</p>
+        <p><strong>Eco Fuel Garage Pongola</strong><br>082 556 8755<br>239 Arcacia Street, Pongola</p>
+        <p><strong>Fats Foods</strong><br>079 981 5505<br>20 Gizenga Street, AQ Holdings Building, KwaDukuza, Stanger</p>
+        <p><strong>Happy Wanderers Resort</strong><br>039 975 1104<br>Happy Wanderers, 1 Abram Dr, Kelso</p>
+        <p><strong>Hilton Farm Stall</strong><br>033 343 4205<br>1 Cedara Rd, Hilton</p>
+        <p><strong>La Spiaggia Beach Kiosk</strong><br>031 561 4388<br>22 Lagoon Dr, Umhlanga, 4320</p>
+        <p><strong>Leeukop Venison Butchery</strong><br>034 435 1123<br>Pongola Game Reserve, Pongola</p>
+        <p><strong>Living with Nuts</strong><br>082 337 5668<br>Total Forecourt, Main Road, Manguzi</p>
+        <p><strong>Loafers Low Carb</strong><br>031 563 5080<br>Unit 11, The Mushroom Farm, 450 Kassier Road, Assagay, Hillcrest</p>
+        <p><strong>MacBananas</strong><br>039 319 1677<br>Lot 11, Remainder Sub 6, Umtamvuna, National Road R61, Munster</p>
+        <p><strong>Manaba Kwikspar</strong><br>039 312 0800<br>248 Marine Drive, Manaba Beach, Margate</p>
+        <p><strong>Maytime Kwikspar</strong><br>031 764 2056<br>20 Charlesway, Kloof</p>
+        <p><strong>Mike's Meat & Deli</strong><br>082 344 4950<br>6 Main Road, Mkuze</p>
+        <p><strong>Perfect Water Newcastle</strong><br>034 312 7656<br>Shop 15, Amajuba Mall, Corner Allen Street & Victoria Road, Newcastle</p>
+        <p><strong>Pick n Save St Lucia</strong><br>035 590 1007<br>Shop 2, Village Mall, Pennington Drive, Pennington</p>
+        <p><strong>Rafikis Restaurant</strong><br>087 092 8973<br>Rafikis at Zulu Croc, Hluhluwe</p>
+        <p><strong>Refillery Uvongo</strong><br>078 084 0002<br>L&L Homan House, 2 Nicholson Avenue, Uvongo</p>
+        <p><strong>Salt Rock Trading Store</strong><br>032 525 5025<br>21 Basil Hulett Dr, Salt Rock</p>
+        <p><strong>Sodwana Bay Beach Kiosk</strong><br>073 901 7996<br>Main Beach, Sodwana Bay, M'Bazwane</p>
+        <p><strong>The Cake Factory</strong><br>034 312 7656<br>Shop 15, Amajuba Mall, Cnr Allen Street & Victoria Road Newcastle</p>
+        <p><strong>The Southbroom Refillery</strong><br>060 756 3611<br>Old National Road, Southbroom</p>
+        <p><strong>Thirsty Tiger Bar</strong><br>083 611 9405<br>Nkwazi Lake Lodge, Pongola Game Reserve, Pongola</p>
+        <p><strong>Umhlanga Rocks Superspar</strong><br>031 561 2231<br>Shop 1, Umhlanga Shopping Centre, 189 Ridge Road, Umhlanga</p>
+        <p><strong>Upside Down House Port Shepstone</strong><br>063 100 9858<br>223 Enfield Drive, Melville, Port Shepstone</p>
+        <p><strong>Village Mall Superspar</strong><br>031 764 5112<br>33 Village rd, Village Mall, Kloof</p>
+        <p><strong>White Elephant Lodge</strong><br>034 413 2489<br>Farm Leeuwpoort, Pongola Game Farm, Phongola</p>
+        <p><strong>Zinkwazi Beach Café</strong><br>032 485 3464<br>1 Glen Dr, Zinkwazi Beach, Nkwazi</p>
+      </div>
+      <div class="dropdown-content" id="northern-cape">
+        <h3>NORTHERN CAPE</h3>
+        <strong>Atlantic Foods</strong><br>053 833 1075<br>36 Phakamile Mabija Road, Kimberley</p>
+        <p><strong>Caltex Carters Café</strong><br>053 861 2710<br>65 Swanns Road Heuwelsig, Kimberley</p>
+        <p><strong>Toverveld Biltong</strong><br>082 324 7441<br>De Dam, Colesburg</p>
+      </div>
+      <div class="dropdown-content" id="north-west">
+        <h3>NORTH WEST</h3>
+        <p><strong>Food Zone Hartebeespoort Dam</strong><br>012 253 2561<br>Shop 2, Dalcos Shopping Centre, St Monica Rd, Hartebeespoort</p>
+    <p><strong>Goose Superette Magalies Park</strong><br>012 207 9000<br>Magalies Park Drive, Hartebeespoort</p>
+    <p><strong>Jasmyn Plaas Produkte</strong><br>073 172 7232<br>Jan Smuts Ave &, R511, Hartbeespoort</p>
+    <p><strong>Mount Amanzi Holiday Resort</strong><br>012 381 5400<br>R512, Hartbeespoort, Hartebeespoort</p>
+    <p><strong>Pica Pau Restaurant</strong><br>012 207 9000<br>Magalies Park Drive, Hartebeespoort</p>
+    <p><strong>Sweet Delicacies</strong><br>072 194 0027<br>Shop 8, Macrovest Centre, Wilkoppies, Klerksdorp</p>
+    <p><strong>Upsidedown House</strong><br>063 100 9858<br>R3 Hartbeeshoek Road, Hartebeespoort</p>
+  </div>
+        <div class="dropdown-content" id="limpopo">
+        <h3>LIMPOPO</h3>
+        <p><strong>Elsa's Deli</strong><br>076 407 4735<br>Shop 7, Eastgate Airport, Hoedspruit</p>
+        <p><strong>Mabalingwe Holiday Resort</strong><br>014 001 7011<br>R516, Bospoort, Bela-Bela</p>
+        <p><strong>OK Minimark Masorini (Phalaborwa)</strong><br>078 829 0540<br>Cnr Hendrik van Eck Street & Koper Road, Phalaborwa</p>
+        <p><strong>Out of Africa Shop Letaba</strong><br>013 735 6314<br>Letaba Rest Camp, Kruger National Park</p>
+        <p><strong>Out of Africa Shop Mopani</strong><br>013 735 6530<br>Mopani Rest Camp, Kruger National Park</p>
+        <p><strong>Out of Africa Shop Olifants</strong><br>013 735 5885<br>Olifants Rest Camp, Kruger National Park</p>
+        <p><strong>Out of Africa Shop Pretorius Kop</strong><br>013 735 5729<br>Pretorius Kop, Kruger National Park</p>
+        <p><strong>The Ultimate Mango Shop</strong><br>072 937 9025<br>Farm Chester, Mchlatsi Dried Fruit, Hoedspruit</p>
+        <p><strong>Total Hoedspruit</strong><br>015 793 0040<br>191 Python Street, Hoedspruit</p>
+      </div>
+      <div class="dropdown-content" id="free-state">
+        <h3>FREE STATE</h3>
+        <p><strong>Distributor: Willie Venter</strong><br>083 409 5409<br>willieventer27@hotmail.com<br>17c Rayton Rif Road, Heuwelsig, Bloemfontein</p>
+        <p><strong>Jumpers Lane</strong><br>051 011 0024<br>3 Lebomboberg Avenue, Beins Vlei, Bloemfontein</p>
+        <p><strong>Heuwelsig Spar</strong><br>051 436 7124<br>Shop 10, Ogilve Thompson Str, Heuwelsig, Bloemfontein</p>
+        <p><strong>Lighthouse</strong><br>072 610 4263<br>Bergview Complex, N3, Harrismith</p>
+        <p><strong>Qwantani Share Block</strong><br>058 623 0882<br>598 Craigielea Farm, R712, Harrismith</p>
+        <p><strong>The Royal Base Agri</strong><br>051 001 1064<br>5 Kenilworth Road, Spitskop Small Holdings, Bloemfontein</p>
+        <p><strong>The Royal Roastery Dan Pienaar</strong><br>051 001 1064<br>5 Kenilworth Road, Spitskop Small Holdings, Bloemfontein</p>
+        <p><strong>The Purple Onion Deli</strong><br>058 256 1898<br>15 Van Zyl Street, Clarens</p>
+        <p><strong>Weltevrede Deli</strong><br>072 425 5441<br>30179A Petra Street, Hillside, Bloemfontein</p>
+      </div>
+      
+      <!-- Add more dropdown content for other provinces -->
+    </div>
+  </section>
+  <section>
+    <div class="contact-info">
+    <p>We do not have a walk-in store, only an online shop. If you would like to order Ice Bombs, please shop online.</p>
+    <p>LEAVE A REVIEW: We value any feedback that you may have, should you have any, please click the following link: <a href="https://bit.ly/3VkhCqf" target="_blank">https://bit.ly/3VkhCqf</a></p>
+    <div class="social-icons">
+        <a href="https://m.facebook.com/icebombs/" target="_blank"><img src="images/facebook.png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/icebombs/" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+        </div>    
+    </section>
+<!-- Footer -->
+<footer>
+    <p>&copy; 2023 Ice Bomb. All rights reserved.</p>
+    <ul>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="About.html">About us</a></li>
+        <li><a href="ContactUs.html">Contact</a></li>
+        <li><a href="Terms.html">Terms</a></li>
+        <li><a href="Privacy.html">Privacy</a></li>
+    </ul>
+</footer>
+
+    <script>
+       // Toggle Navigation Menu for Mobile
+const menuToggle = document.getElementById('menu-toggle');
+const navList = document.getElementById('nav-list');
+const closeMenu = document.getElementById('close-menu');
+const heroSection = document.querySelector('.hero');
+
+menuToggle.addEventListener('click', function() {
+    navList.classList.toggle('active');
+    closeMenu.style.display = 'block';
+    // Move hero section down when menu is open
+    if (navList.classList.contains('active')) {
+        heroSection.style.marginTop = '150px'; // Adjust this value if needed
+    }
+});
+
+closeMenu.addEventListener('click', function() {
+    navList.classList.remove('active');
+    closeMenu.style.display = 'none'; // Hide the close button when menu is closed
+
+    // Move hero section back up
+    heroSection.style.marginTop = '0';
+});
+
+function toggleDropdown(provinceId) {
+  // Get the selected dropdown content
+  const selectedDropdown = document.getElementById(provinceId);
+
+  // Check if it's currently displayed
+  const isDisplayed = selectedDropdown.style.display === 'block';
+
+  // Hide all dropdowns first
+  const dropdowns = document.getElementsByClassName('dropdown-content');
+  for (let i = 0; i < dropdowns.length; i++) {
+    dropdowns[i].style.display = 'none';
+  }
+
+  // If the clicked dropdown wasn't displayed, display it
+  if (!isDisplayed) {
+    selectedDropdown.style.display = 'block';
+  }
+}
+
+
+
+    </script>
+</body>
+</html>
+

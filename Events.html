@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events & Functions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Body and Typography */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fff;
+            color: #333;
+        }.events-container {
+        text-align: center; /* Centers the text and images */
+        padding: 20px;
+    }
+    
+    /* Set the same width and height for all images */
+    .events-image {
+        width: 300px; /* Adjust the width to fit your layout */
+        height: 200px; /* Adjust the height to fit your layout */
+        object-fit: cover; /* This makes sure the image is cropped to fit without distortion */
+        border-radius: 8px; /* Optional: adds rounded corners to the images */
+        margin-bottom: 20px; /* Adds spacing between images and paragraphs */
+    }
+    
+    
+        
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        
+            body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        
+        .contact-container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .contact-image {
+        width: 100%; /* Adjust width as needed */
+        max-width: 600px; /* Adjust maximum width as needed */
+        height: auto;
+        margin: 20px 0;}
+        h1 {
+            color: #333;
+        }
+        
+        .contact-info h2 {
+            color: darkblue;
+        }
+        
+        .contact-info p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+        
+        a {
+            color: darkblue;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+      
+            /* General Reset */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+    
+            /* Body and typography */
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #fff;
+                color: #333;
+            }
+    
+            /* Header */
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px;
+                background-color: #fff;
+                border-bottom: 1px solid #ddd;
+            }
+    
+            .logo img {
+                width: 150px;
+            }
+    
+            /* Navigation */
+            .nav .active {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                z-index: 1000;
+                border-top: 1px solid #ddd;
+                padding: 0;
+                margin: 0;
+                text-align: center;
+            }
+    
+            .nav ul {
+                display: flex;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+    
+            .nav ul li {
+                margin: 15px 30px;
+                width: 100%;
+            }
+    
+            .nav ul li a {
+                text-decoration: none;
+                color: #333;
+                font-weight: bold;
+                text-align: center;
+            }
+    
+            /* Hide the close icon by default */
+            .close-icon {
+                display: none;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 30px;
+                cursor: pointer;
+                z-index: 1100;
+                color: #333;
+            }
+    
+            /* When the nav menu is active, show the close icon */
+            .nav ul.active ~ .close-icon {
+                display: block;
+            }
+    
+            /* Styling for the X icon */
+            .close-icon span {
+                font-size: 40px;
+                color: #333;
+                cursor: pointer;
+            }
+    
+            /* Move the hero section down when the menu is open */
+            .nav ul.active ~ .hero {
+                margin-top: 150px;
+            }
+    
+            /* Reset the hero section's margin when the menu is closed */
+            .hero {
+                transition: margin-top 0.3s ease;
+            }
+    
+            .hero img {
+                width: 100%;
+                height: auto;
+                border-radius: 15px;
+            }
+    
+            .menu-icon {
+                display: none;
+                cursor: pointer;
+                z-index: 1100;
+            }
+    
+            .menu-icon img {
+                width: 30px;
+                height: 30px;
+            }
+    
+            .hero.active {
+                transform: translateY(200px);
+                transition: transform 0.3s ease;
+            }
+    
+            /* Grid for Action Sections */
+            .grid-container {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+                padding: 40px;
+            }
+    
+            .grid-item {
+                background-size: cover;
+                background-position: center;
+                height: 300px;
+                border-radius: 15px;
+                position: relative;
+            }
+    
+            .action-button {
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: rgba(0, 0, 0, 0.6);
+                color: #fff;
+                padding: 10px 20px;
+                border-radius: 20px;
+                text-decoration: none;
+                font-weight: bold;
+                transition: background-color 0.3s ease;
+            }
+    
+            .action-button:hover {
+                background-color: rgba(0, 0, 0, 0.8);
+            }      /* Footer */
+            footer {
+                background-color: #333;
+                color: #fff;
+                padding: 20px;
+                text-align: center;
+            }
+    
+            footer ul {
+                list-style: none;
+                display: flex;
+                justify-content: center;
+                margin: 10px 0;
+            }
+    
+            footer ul li {
+                margin: 0 15px;
+            }
+    
+            footer ul li a {
+                color: #fff;
+                text-decoration: none;
+            }
+    
+            footer p {
+                font-size: 14px;
+                margin-top: 10px;
+            }
+            .contact-info {
+        text-align: center;
+        padding: 20px;
+    }
+    
+    .social-icons {
+        margin-top: 20px;
+    }
+    
+    .social-icons img {
+        width: 40px; /* Adjust size as needed */
+        height: 40px;
+        margin: 0 10px;
+        vertical-align: middle;
+    }
+    
+            /* Media Queries for Mobile Responsiveness */
+            @media (max-width: 768px) {
+                .grid-container {
+                    grid-template-columns: 1fr;
+                }
+    
+                .nav ul {
+            display: none; /* Hide navigation links initially */
+            flex-direction: column;
+            position: absolute;
+            top: 60px; /* Adjust for header height */
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            border-top: 1px solid #ddd;
+            z-index: 1;
+        }
+    
+        .nav ul.active {
+            display: flex; /* Show when toggled */
+        }
+    
+        .menu-icon {
+            display: block; /* Show hamburger menu on mobile */
+        }
+    
+                .about-section {
+                    flex-direction: column;
+                }
+    
+                .about-content p {
+                    max-width: 100%;
+                }
+            }  .newsletter input[type="email"] {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    
+        .video-section iframe {
+            height: 300px;
+        }
+    
+        footer ul {
+            flex-direction: column;
+        }
+    
+        footer ul li {
+            margin: 10px 0;
+        }
+      /* Very Small Screens (Phones in Portrait Mode) */
+    @media (max-width: 480px) {
+        .hero img {
+            height: auto;
+        }
+    
+        .video-section iframe {
+            height: 250px;
+        }
+    
+        .newsletter input[type="email"] {
+            width: 100%;
+        }
+    
+        .action-button {
+            font-size: 14px;
+            padding: 8px 16px;
+        }
+    }
+    /* Tablets and Medium Screens */
+    @media (max-width: 992px) {
+        .grid-container {
+            grid-template-columns: repeat(2, 1fr); /* Adjust grid for tablets */
+        }
+    
+        .video-section iframe {
+            height: 400px; /* Reduce video height on smaller screens */
+        }
+    
+        .newsletter input[type="email"] {
+            width: 250px;
+        }
+    }
+     /* Main Content */
+     .events-container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .events-image {
+            width: 100%;
+            max-width: 400px; /* Smaller image size */
+            height: 400px;
+            margin: 20px 0;
+        }
+        
+        h1 {
+            color: #333;
+        }
+        
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+        
+        a {
+            color: darkblue;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+           
+        </style>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <a href="index.php"><img src="images/Ice Bomb Logo.8ed06360.png" alt="Ice Bomb Logo" style="width: 150px;"></a>
+        </div>
+        <nav class="nav">
+            <ul id="nav-list" class="nav-list">
+                <li><a href="Shop.php">Shop</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Stocklist.html">Stockists</a></li>
+                <li><a href="Wholesale.html">Wholesale</a></li>
+                <li><a href="Events.html">Events</a></li>
+                <li><a href="ContactUs.html">Contact</a></li>
+                <li><a href="cart.php">Cart</a></li>
+            </ul>
+        </ul>
+        <div id="close-menu" class="close-icon">
+            <span>&times;</span>
+        </div>
+        <div id="menu-toggle" class="menu-icon">
+            <img src="images/menu.png" alt="Menu">
+        </div>
+    </nav>
+</header>
+
+    <!-- Main Content -->
+    <div class="events-container">
+        <h1>Events & Functions</h1>
+        <img src="images/events.959cf4c5.jpg" alt="Main Event Image" class="events-image">
+        <p>For an affordable sweet treat for your festivities, why not hire our mobile vending unit for your next big private or corporate event? The delicious range of Ice Bomb fruit lollies have been given out at launches, year-end events, weddings, birthday parties, and brand activations!</p>
+       
+        <img src="images/event2.f6694b6e.jpg" alt="Mobile Vending Unit at an Event" class="events-image"> 
+        <p>We can custom-wrap a glass-top freezer with your branding on it for your event. Alternatively, you can hire our mobile vending freezer trailer. Our well-dressed and dedicated staff member will be on-site to hand out the Ice Bombs to your guests.</p>
+        <img src="images/event3.7d0f2bac.jpg" alt="Mobile Vending Unit Staff" class="events-image">
+        <img src="images/event1.9a81a233.jpg" alt="Mobile Vending Unit" class="events-image">
+        <p>For more information, email <a href="mailto:info@icebombs.co.za">info@icebombs.co.za</a> or call <a href="tel:+27772307067">+27 772 307 067</a>.</p>
+    </div>
+
+    <section>
+        <div class="contact-info">
+        <p>We do not have a walk-in store, only an online shop. If you would like to order Ice Bombs, please shop online.</p>
+        <p>LEAVE A REVIEW: We value any feedback that you may have, should you have any, please click the following link: <a href="https://bit.ly/3VkhCqf" target="_blank">https://bit.ly/3VkhCqf</a></p>
+        <div class="social-icons">
+            <a href="https://m.facebook.com/icebombs/" target="_blank"><img src="images/facebook.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/icebombs/" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+            </div>    
+        </section>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Ice Bomb. All rights reserved.</p>
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="About.html">About us</a></li>
+            <li><a href="ContactUs.html">Contact</a></li>
+            <li><a href="Terms.html">Terms</a></li>
+         
+            <li><a href="Privacy.html">Privacy</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
+
+        <script>
+            // Toggle Navigation Menu for Mobile
+            const menuToggle = document.getElementById('menu-toggle');
+            const navList = document.getElementById('nav-list');
+            const closeMenu = document.getElementById('close-menu');
+    
+            const heroSection = document.querySelector('.hero');
+    
+    menuToggle.addEventListener('click', function() {
+        navList.classList.toggle('active');
+        closeMenu.style.display = 'block';
+        //Move hero section down when menu is open
+        if (navList.classList.contains('active')) {
+            heroSection.style.marginTop = '150px'; // Adjust this value if needed
+        }
+    });
+    
+    closeMenu.addEventListener('click', function() {
+        navList.classList.remove('active');
+        closeMenu.style.display = 'none'; // Hide the close button when menu is closed
+    
+        // Move hero section back up
+        heroSection.style.marginTop = '0';
+    });
+        </script>
+</body>
+</html>
+
+   

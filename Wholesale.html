@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events & Functions</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+<style>* /* General Reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #fff;
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
+    
+    /* Header */
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .logo img {
+        width: 150px;
+    }
+    
+    /* Navigation */
+    .nav .active {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        z-index: 1000;
+        border-top: 1px solid #ddd;
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+    
+    .nav ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .nav ul li {
+        margin: 15px 30px;
+        width: 100%;
+    }
+    
+    .nav ul li a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    .close-icon {
+        display: none;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 30px;
+        cursor: pointer;
+        z-index: 1100;
+        color: #333;
+    }
+    
+    .nav ul.active ~ .close-icon {
+        display: block;
+    }
+    
+    .close-icon span {
+        font-size: 40px;
+        color: #333;
+        cursor: pointer;
+    }
+    
+    .nav ul.active ~ .hero {
+        margin-top: 150px;
+    }
+    
+    .menu-icon {
+        display: none;
+        cursor: pointer;
+        z-index: 1100;
+    }
+    
+    .menu-icon img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    /* Stockist Section */
+    .stockist-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        max-width: 1200px;
+        margin: 50px auto;
+        padding: 20px;
+    }
+    
+    .left-column {
+        flex-basis: 30%;
+    }
+    
+    .right-column {
+        flex-basis: 65%;
+    }
+    
+    h2 {
+        font-size: 2rem;
+        color: #222;
+        margin-bottom: 10px;
+    }
+    
+    .underline {
+        width: 50px;
+        height: 2px;
+        background-color: #6a5acd;
+        margin-bottom: 20px;
+    }
+    
+    .right-column p {
+        margin-bottom: 20px;
+        color: #555;
+    }
+    
+    /* General Section Styling */
+    .main-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: calc(100vh - 120px);
+        padding: 20px;
+    }
+    
+    .about-container {
+        width: 80%;
+        max-width: 800px;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        text-align: center;
+    }
+    
+    .about-image {
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        margin: 20px 0;
+    }
+    
+    /* Buttons */
+    .profile-button {
+        font-size: 16px;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        outline: none;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+    
+    .profile-button:hover {
+        background-color: #000000;
+    }
+    .fridge-section {
+    padding: 40px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.fridge-section h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.fridge-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.fridge-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    text-align: left;
+    /* Added properties */
+    display: flex; /* Enables flexbox on card */
+    flex-direction: column; /* Aligns items vertically */
+    align-items: center; /* Centers items horizontally */
+    height: auto; /* Allow card to expand based on content */
+}
+
+.fridge-image {
+    width: 110%; /* Ensures image fits the card width */
+    height: 400px; /* Keep this fixed to maintain image size */
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+
+.fridge-info h3 {
+    color: #007bff;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.fridge-info p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.fridge-info strong {
+    font-weight: bold;
+}
+.chest-freezer-section {
+    padding: 40px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.chest-freezer-section h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.chest-freezer-section p {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.freezer-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.freezer-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    text-align: left;
+}
+
+.freezer-image {
+    width: 300px;  /* Fixed width */
+    height: 200px; /* Fixed height */
+    object-fit: cover;  /* Ensures the image scales properly and fills the area without stretching */
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.freezer-info h3 {
+    color: #007bff;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.freezer-info p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.freezer-info strong {
+    font-weight: bold;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .freezer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .freezer-card {
+        max-width: 100%;
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .fridge-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .fridge-card {
+        max-width: 100%;
+    }
+}
+/* Stockists Forms Section */
+.stockist-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+}
+
+.stockist-section .container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.stockist-section h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.stockist-section .button-container {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.stockist-section p {
+    color: #666;
+    line-height: 1.6;
+}/* Slideshow container */
+.slideshow-container {
+  width: 100%; /* Takes the full width of the viewport or parent element */
+  max-width: 1200px; /* Maximum width can be adjusted based on design preference */
+  position: relative; /* Needed for absolute positioning of navigation arrows */
+  margin: auto; /* Centers the slideshow in the available space */
+  overflow: hidden; /* Ensures nothing overflows outside the container */
+  background: #000; /* Optional: Sets a background color for visibility contrast */
+}
+
+/* Slides */
+.mySlides {
+  display: none; /* Hide slides initially */
+  position: relative; /* Context for positioning inner elements like images */
+  width: 100%; /* Full width to respond to container size */
+  padding-top: 56.25%; /* Maintains an aspect ratio of 16:9 */
+}
+
+.mySlides img {
+  position: absolute; /* Allows precise positioning over the padded area */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ensures the entire image is visible without cropping */
+  margin: auto; /* Centers the image if it doesn't fill the container */
+}
+
+/* Navigation arrows */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* Centers arrows vertically */
+  width: auto;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  transition: 0.6s ease;
+  background-color: rgba(0,0,0,0.6); /* Semi-transparent for better visibility */
+}
+
+.next {
+  right: 10px; /* Positioned on the right side */
+  border-radius: 3px 0 0 3px;
+}
+
+.prev {
+  left: 10px; /* Positioned on the left side */
+  border-radius: 0 3px 3px 0;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8); /* Darkens on hover for clear interaction cues */
+}
+
+/* Fade effect for transitions */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer ul {
+    list-style: none; /* Removes bullet points */
+    padding: 0; /* Removes default padding */
+    margin: 0; /* Removes default margin */
+    display: flex; /* Align items in a row */
+    flex-direction: column; /* Arrange items vertically */
+    align-items: center; /* Center items horizontally */
+}
+
+footer ul li {
+    margin: 10px 0; /* Adds vertical spacing between items */
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer p {
+    font-size: 14px;
+    margin-top: 10px;
+} .contact-info {
+    text-align: center;
+    padding: 20px;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons img {
+    width: 40px; /* Adjust size as needed */
+    height: 40px;
+    margin: 0 10px;
+    vertical-align: middle;
+}
+
+    /* Media Queries for Mobile Responsiveness */
+    @media (max-width: 768px) {
+        .grid-container {
+            grid-template-columns: 1fr;
+        }
+    
+        .nav ul {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            border-top: 1px solid #ddd;
+            z-index: 1;
+        }
+    
+        .nav ul.active {
+            display: flex;
+        }
+    
+        .menu-icon {
+            display: block;
+        }
+    
+        .about-section {
+            flex-direction: column;
+        }
+    
+        .about-content p {
+            max-width: 100%;
+        }
+    
+        .stockist-section {
+            flex-direction: column;
+        }
+    
+        .left-column, 
+        .right-column {
+            flex-basis: 100%;
+        }
+    }
+    
+    /* Additional Styles for Small Screens */
+    @media (max-width: 480px) {
+        .hero img {
+            height: auto;
+        }
+    
+        .video-section iframe {
+            height: 250px;
+        }
+    
+        .newsletter input[type="email"] {
+            width: 100%;
+        }
+    
+        .action-button {
+            font-size: 14px;
+            padding: 8px 16px;
+        }
+    }
+    
+    @media (max-width: 992px) {
+        .grid-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    
+        .video-section iframe {
+            height: 400px;
+        }
+    
+        .newsletter input[type="email"] {
+            width: 250px;
+        }
+    }
+   </style>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <a href="index.php"><img src="images/Ice Bomb Logo.8ed06360.png" alt="Ice Bomb Logo" style="width: 150px;"></a>
+        </div>
+        <nav class="nav">
+            <ul id="nav-list" class="nav-list">
+                <li><a href="shop.php">Shop</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Stocklist.html">Stockists</a></li>
+                <li><a href="Wholesale.html">Wholesale</a></li>
+                <li><a href="Events.html">Events</a></li>
+                <li><a href="ContactUs.html">Contact</a></li>
+                <li><a href="cart.php">Cart</a></li>
+            </ul>
+        
+            <!-- Hamburger Menu Icon -->
+            <div class="menu-icon">
+                <img src="images/menu.png" alt="Menu Icon" id="menu-toggle">
+            </div>
+    
+            <!-- Close Icon for the Menu -->
+            <div class="close-icon" id="close-menu">
+                <span>&times;</span> <!-- "X" Icon -->
+            </div>
+        </nav>
+    </header>
+
+    <section class="stockist-section">
+        <div class="left-column">
+            <h2>How to Become a Stockist</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="right-column">
+            <p>We supply stockists with our delicious range of real fruit lollies throughout South Africa. Our lollies are all handmade in small batches using real fruit. They are available in the following flavours: granadilla, mango, litchi, lemon, strawberry and pineapple.</p>
+            <p>The Ice Bombs weigh 150g each, they are vegan-friendly and Halaal- and Kosher-certified. They come fully packaged in colourful packaging, and are sold in bags of 50 units per flavour.</p>
+            <p>The minimum order to qualify for wholesale prices is 150 units. However, if you would like us to supply you with a sign-written glass-top display freezer in which to hold the stock, then the minimum opening order is 300 units.</p>
+        </div>
+    </section>
+    <section class="fridge-section">
+        <h2>Glass-top Freezers</h2>
+        <div class="fridge-container">
+            <div class="fridge-card">
+                <img src="images/glass1.226c7e92.jpg" alt="Small Fridge" class="fridge-image">
+                <div class="fridge-info">
+                    <h3>SMALL</h3>
+                    <p>205-litre, 3-basket – 870mm (height) x 815mm (wide) x 575mm (deep).</p>
+                    <p><strong>Minimum:</strong> 300 units</p>
+                </div>
+            </div>
+    
+            <div class="fridge-card">
+                <img src="images/glass2.02222ce6.jpg" alt="Large Fridge" class="fridge-image">
+                <div class="fridge-info">
+                    <h3>LARGE</h3>
+                    <p>520-litre, 3-basket – 865mm (height) x 1454mm (wide) x 654mm (deep).</p>
+                    <p><strong>Minimum:</strong> 600 units</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="chest-freezer-section">
+        <h2>SIGN - WRITTEN CHEST FREEZERS</h2>
+        <p>Chest freezers are an ideal solution for load shedding, as if not opened, they can hold the stock cold for up to 2.5 hours.</p>
+        <div class="freezer-container">
+            <div class="freezer-card">
+                <img src="images/chest1.d4a4eb5a.jpg" alt="Small Chest Freezer" class="freezer-image">
+                <div class="freezer-info">
+                    <h3>SMALL</h3>
+                    <p>110-litre – 865mm (height) x 463mm (wide) x 617mm (deep).</p>
+                    <p><strong>Minimum:</strong> 200 units</p>
+                </div>
+            </div>
+    
+            <div class="freezer-card">
+                <img src="images/chest2.bd2a7da6.jpg" alt="Medium Chest Freezer" class="freezer-image">
+                <div class="freezer-info">
+                    <h3>MEDIUM</h3>
+                    <p>299-litre – 865mm (height) x 1063mm (wide) x 617mm (deep).</p>
+                    <p><strong>Minimum:</strong> 350 units</p>
+                </div>
+            </div>
+    
+            <div class="freezer-card">
+                <img src="images/chest3.742f3837.jpeg" alt="Large Chest Freezer" class="freezer-image">
+                <div class="freezer-info">
+                    <h3>LARGE</h3>
+                    <p>433-litre – 865mm (height) x 1255mm (wide) x 735mm (deep).</p>
+                    <p><strong>Minimum:</strong> 500 units</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section> 
+        <div class="stockist-section">
+            <div class="container">
+                <h1>NEW STOCKISTS FORMS</h1>
+                <div class="button-container">
+                    <a href="Workbook1.pdf" class="profile-button">CLIENT FORMS</a>
+                    <a href="Microsoft Word - AAAAATEMPLATE FREEZER CONTRACT.docx.pdf" class="profile-button">FREEZER CONTRACT PDF</a>
+                </div>
+                <p>
+                    If you are interested in stocking the Ice Bombs in your store / establishment, then please can you fill in the
+                    New Client Form, sign the Freezer Contract, and send both these forms back to us, along with a copy of
+                    your ID book. Let us know which freezer you would like to take, and we have received your forms, we will
+                    begin to process your application.
+                </p>
+            </div>
+        </div>
+        
+</section>
+<section>
+<div class="slideshow-container">
+    <!-- Slides -->
+    <div class="mySlides fade">
+        <img src="images/stock1.bc307640.jpg" style="width:100%"> <!-- Replace with your image path -->
+    </div>
+
+    <div class="mySlides fade">
+        <img src="images/stock2.2c9d0f17.jpg" style="width:100%"> <!-- Replace with your image path -->
+    </div>
+
+    <div class="mySlides fade">
+        <img src="images/stock3.13db7768.jpg" style="width:100%"> <!-- Replace with your image path -->
+    </div>
+
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+</section>
+
+<section>
+    <div class="contact-info">
+    <p>We do not have a walk-in store, only an online shop. If you would like to order Ice Bombs, please shop online.</p>
+    <p>LEAVE A REVIEW: We value any feedback that you may have, should you have any, please click the following link: <a href="https://bit.ly/3VkhCqf" target="_blank">https://bit.ly/3VkhCqf</a></p>
+    <div class="social-icons">
+        <a href="https://m.facebook.com/icebombs/" target="_blank"><img src="images/facebook.png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/icebombs/" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+        </div>    
+    </section>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Ice Bomb. All rights reserved.</p>
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="About.html">About us</a></li>
+            <li><a href="ContactUs.html">Contact</a></li>
+            <li><a href="Terms.html">Terms</a></li>
+            <li><a href="Privacy.html">Privacy</a></li>
+        </ul>
+    </footer>
+
+
+        <script>
+            // Toggle Navigation Menu for Mobile
+            const menuToggle = document.getElementById('menu-toggle');
+            const navList = document.getElementById('nav-list');
+            const closeMenu = document.getElementById('close-menu');
+    
+            const heroSection = document.querySelector('.hero');
+    
+    menuToggle.addEventListener('click', function() {
+        navList.classList.toggle('active');
+        closeMenu.style.display = 'block';
+        //Move hero section down when menu is open
+        if (navList.classList.contains('active')) {
+            heroSection.style.marginTop = '150px'; // Adjust this value if needed
+        }
+    });
+    
+    closeMenu.addEventListener('click', function() {
+        navList.classList.remove('active');
+        closeMenu.style.display = 'none'; // Hide the close button when menu is closed
+    
+        // Move hero section back up
+        heroSection.style.marginTop = '0';
+    });
+        </script>
+
+
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+    
+    // Next/previous controls
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    // Thumbnail image controls
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      if (n > slides.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";  
+      }
+      slides[slideIndex-1].style.display = "block";  
+    }
+    </script>
+    
+
+</body>
+</html>
